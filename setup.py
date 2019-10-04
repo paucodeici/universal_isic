@@ -1,27 +1,25 @@
 #!/usr/bin/env python
 
-import os
-import sys
-
 import setuptools
 
 
-def publish():
-    """
-    A Shortcut for building the package and pushing it into PyPI.  This is
-    lifted entirely from the requests library.
-    """
-    os.system("rm -vfr build dist")
-    os.system("python setup.py build")
-    os.system("python setup.py sdist bdist_wheel")
-    os.system("twine upload dist/*")
-    sys.exit()
+with open("README.rst") as f:
+    long_description = f.read()
 
-
-# Allow setup.py to be run from any path
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
-
-if sys.argv[-1] == "publish":
-    publish()
-
-setuptools.setup()
+setuptools.setup(
+    name="isic",
+    version="1.0.4",
+    description="A Python wrapper around the UN's ISIC definitions",
+    long_description=long_description,
+    author="Daniel Quinn",
+    author_email="code@danielquinn.org",
+    url="https://gitlab.com/workfinder/isic",
+    py_modules=["isic"],
+    include_package_data=True,
+    license="GPL3",
+    classifiers=[
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+    ],
+)
