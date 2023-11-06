@@ -1,6 +1,10 @@
 ISIC
 ====
 
+This is a copy of the repository you can find in gitlab behind the isic package for python.
+
+Plan here is to use the same structure but extends it to all the national classification system in order to get seamless mapping between different systems.
+
 This is just a Python-friendly way to reference revision 4 of the International
 Standard Industrial Classification (ISIC).  It's the result of pulling down
 `this URL`_ and formatting it into a native Python object.  For more
