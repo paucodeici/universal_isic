@@ -1,10 +1,6 @@
 # Changelog
 
-## 1.0.4
+## 0.0.1
 
-* Simplify the build process
-
-
-## 1.0.0
-
-* Initial release.
+* Add NAFv2 from https://gitlab.com/workfinder/isic
+* Add Mapping from ISIC to NAFv2
