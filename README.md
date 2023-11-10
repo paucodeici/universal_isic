@@ -1,3 +1,19 @@
+# Organisation
+
+Each classification system has multiple level.
+
+So from each classification system, you can query the number of levels and for a given level you can get the elements of the level under.
+
+It means for example with NAF, you have:
+- from universal_isic import NAFV2
+- NAFV2.number_of_levels => return 5
+- NAFV2.all_elements => return a list of all the elements
+- NAFV2.get_elements(level=1, previous_levels=list[list[int|str]])
+- NAFV2(level_1="A", level_2="01").convert_to(ISICV4)
+
+It means we need to have something to know what are the sub elements of a given level.
+
+
 ISIC
 ====
 

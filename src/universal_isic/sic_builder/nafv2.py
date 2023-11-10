@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from collections import OrderedDict
 
+from .base import Base_Classification
+
 NAFV2_L1 = OrderedDict(
     (
         ("A", "Agriculture, sylviculture et pêche"),
@@ -1407,7 +1409,6 @@ NAFV2_L4 = OrderedDict(
     )
 )
 
-
 NAFV2_L5 = OrderedDict(
     (
         (
@@ -2520,6 +2521,169 @@ NAFV2_L5 = OrderedDict(
             "Activités indifférenciées des ménages en tant que producteurs de services pour usage propre",
         ),
         ("99.00Z", "Activités des organisations et organismes extraterritoriaux"),
+    )
+)
+
+NAFV2_INTERNAL_MAPPING = OrderedDict(
+    (
+        (
+            "A",
+            OrderedDict(
+                (
+                    "01",
+                    OrderedDict(
+                        (
+                            "01.1",
+                            OrderedDict(
+                                ("01.11", ["01.11Z"]),
+                                ("01.12", ["01.12Z"]),
+                                ("01.13", ["01.13Z"]),
+                                ("01.14", ["01.14Z"]),
+                                ("01.15", ["01.15Z"]),
+                                ("01.16", ["01.16Z"]),
+                                ("01.19", ["01.19Z"]),
+                            ),
+                        ),
+                        (
+                            "01.2",
+                            OrderedDict(
+                                ("01.21", ["01.21Z"]),
+                                ("01.22", ["01.22Z"]),
+                                ("01.23", ["01.23Z"]),
+                                ("01.24", ["01.24Z"]),
+                                ("01.25", ["01.25Z"]),
+                                ("01.26", ["01.26Z"]),
+                                ("01.27", ["01.27Z"]),
+                                ("01.28", ["01.28Z"]),
+                                ("01.29", ["01.29Z"]),
+                            ),
+                        ),
+                        (
+                            "01.3",
+                            OrderedDict(("01.30", ["01.30Z"])),
+                        ),
+                        (
+                            "01.4",
+                            OrderedDict(
+                                ("01.41Z", ["01.41Z"]),
+                                ("01.42", ["01.42Z"]),
+                                ("01.43", ["01.43Z"]),
+                                ("01.44", ["01.44Z"]),
+                                ("01.45", ["01.45Z"]),
+                                ("01.46", ["01.46Z"]),
+                                ("01.47", ["01.47Z"]),
+                                ("01.49", ["01.49Z"]),
+                            ),
+                        ),
+                        ("01.5", OrderedDict(("01.50", ["01.50Z"]))),
+                        (
+                            "01.6",
+                            OrderedDict(
+                                ("01.61", ["01.61Z"]),
+                                ("01.62", ["01.62Z"]),
+                                ("01.63", ["01.63Z"]),
+                                ("01.64", ["01.64Z"]),
+                            ),
+                        ),
+                        (
+                            "01.7",
+                            OrderedDict(("01.70", ["01.70Z"])),
+                        ),
+                    ),
+                ),
+                (
+                    "02",
+                    OrderedDict(
+                        (
+                            "02.1",
+                            OrderedDict(("02.10", ["02.10Z"])),
+                        ),
+                        (
+                            "02.2",
+                            OrderedDict(("02.20", ["02.20Z"])),
+                        ),
+                        (
+                            "02.3",
+                            OrderedDict(("02.30", ["02.30Z"])),
+                        ),
+                        (
+                            "02.4",
+                            OrderedDict(("02.40", ["02.40Z"])),
+                        ),
+                    ),
+                ),
+                (
+                    "03",
+                    OrderedDict(
+                        (
+                            "03.1",
+                            OrderedDict(
+                                ("03.11", ["03.11Z"]),
+                                ("03.12", ["03.12Z"]),
+                            ),
+                        ),
+                        (
+                            "03.2",
+                            OrderedDict(
+                                ("03.21", ["03.21Z"]),
+                                ("03.22", ["03.22Z"]),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        (
+            "B",
+            OrderedDict(
+                ("05.1", OrderedDict(("05.10Z", ["05.10Z"]))),
+                ("05.2", OrderedDict(("05.20Z", ["05.20Z"]))),
+                ("06.1", OrderedDict(("06.10Z", ["06.10Z"]))),
+                ("06.2", OrderedDict(("06.20Z", ["06.20Z"]))),
+                ("07.1", OrderedDict(("07.10Z", ["07.10Z"]))),
+                ("07.2", OrderedDict(("07.21Z", ["07.21Z"]), ("07.29Z", ["07.29Z"]))),
+                ("08.1", OrderedDict(("08.11Z", ["08.11Z"]), ("08.12Z", ["08.12Z"]))),
+                (
+                    "08.9",
+                    OrderedDict(
+                        ("08.91Z", ["08.91Z"]),
+                        ("08.92Z", ["08.92Z"]),
+                        ("08.93Z", ["08.93Z"]),
+                        ("08.99Z", ["08.99Z"]),
+                    ),
+                ),
+                ("09.1", OrderedDict(("09.10Z", ["09.10Z"]))),
+                ("09.9", OrderedDict(("09.90Z", ["09.90Z"]))),
+            ),
+        ),
+        ("C", "Industrie manufacturière"),
+        (
+            "D",
+            "Production et distribution d'électricité, de gaz, de vapeur et d'air conditionné",
+        ),
+        (
+            "E",
+            "Production et distribution d'eau ; assainissement, gestion des déchets et dépollution",
+        ),
+        ("F", "Construction"),
+        ("G", "Commerce ; réparation d'automobiles et de motocycles"),
+        ("H", "Transports et entreposage"),
+        ("I", "Hébergement et restauration"),
+        ("J", "Information et communication"),
+        ("K", "Activités financières et d'assurance"),
+        ("L", "Activités immobilières"),
+        ("M", "Activités spécialisées, scientifiques et techniques"),
+        ("N", "Activités de services administratifs et de soutien"),
+        ("O", "Administration publique"),
+        ("P", "Enseignement"),
+        ("Q", "Santé humaine et action sociale"),
+        ("R", "Arts, spectacles et activités récréatives"),
+        ("S", "Autres activités de services"),
+        (
+            "T",
+            "Activités des ménages en tant qu'employeurs ; activités indifférenciées des ménages en tant que producteurs de biens et services pour usage propre",
+        ),
+        ("U", "Activités extra-territoriales)"),
     )
 )
 
